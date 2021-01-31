@@ -2,17 +2,19 @@
 
 
 def tabla_tipos_id():
-    tipos_id = input("ingresa el id: "):
+    tipos_id = input("ingresa el id: ")
     t_id = int(input("""guardar?:
     1) sí, guardar e ir a la columna "nombre"
     2) sí, guardar y salir
     3) no, editar
     4) descartar y volver a escoger la columna"""))
     if idt == 1:
-        return tipos_id
+        registro['tipos_id'] = tipos_id
+        return registro['tipos_id']
         tabla_tipos_nombre()
     elif idt == 2:
-        return tipos_id
+        registro['tipos_id'] = tipos_id
+        return registro['tipos_id']
     elif idt == 3:
         tabla_tipos_id()
     elif idt == 4:
@@ -20,16 +22,19 @@ def tabla_tipos_id():
 
 
 def tabla_tipos_nombre():
-    tipos_nombre = input("ingresa el nombre: "):
+    tipos_nombre = input("ingresa el nombre: ")
     t_n = int(input("""guardar?:
     1) sí, guardar e ir a la columna "id"
     2) sí, guardar y salir
     3) no, editar
     4) descartar y volver a escoger la columna"""))
     if idt == 1:
-        return tipos_nombre
+        registro['tipos_nombre'] = tipos_nombre
+        return registro['tipos_nombre']
+        tabla_tipos_id()
     elif idt == 2:
-        return tipos_nombre
+        registro['tipos_nombre'] = tipos_nombre
+        return registro['tipos_nombre']
     elif idt == 3:
         tabla_tipos_nombre()
     elif idt == 4:
@@ -44,7 +49,9 @@ def tabla_tipos(registro):
         tabla_tipos_id()
     elif a == 2:
         tabla_tipos_nombre()
-    else: tabla_tipos(registro)
+    else:
+        print("valor no admisible") 
+        tabla_tipos(registro)
 
 
 def run():
@@ -62,7 +69,7 @@ def archivo_resultado():
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
     file.write(f"""INSERT INTO `tipos` (id, nombre)
-    VALUES ({tipos_id}, {tipos_nombre}""")
+    VALUES ({registro['tipos_id']}, {registro['tipos_nombre']}""")
     # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
     # lo que sigue indica que se cierra el archivo:
     file.close()
