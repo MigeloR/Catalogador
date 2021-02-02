@@ -1,2 +1,3 @@
-INSERT INTO `tipos` (id, nombre)
-    VALUES (, acero)
+INSERT INTO `tipos` (nombre)
+    VALUES ('fuego')
+    ;
