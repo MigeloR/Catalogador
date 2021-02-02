@@ -74,7 +74,7 @@ def optimizador(ds):
 def selector():
     """Aqui se escogera un valor y este determinara la llave a editar"""
     print("campos actuales:")
-    n = 1   
+    n = 1 
     for i in diccionario.keys():
         print(f"{n}) {i}")
         n += 1
@@ -87,6 +87,8 @@ def selector():
     a continuacion, optimizador
     """)
     optimizador(ds)
+    print("""
+    ya salimos de selector""")
 
     
     # optimizador(llave)
