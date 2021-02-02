@@ -5,21 +5,59 @@ diccionario = {
 
 
 def f_primero():
-    a = int(input("""quieres dar un valor para PRIMERO?
+    b = int(input("""quieres dar un valor para PRIMERO?
     1) Yes
     2) No
     ingresa tu respuesta: """))
-    if a == 1:
+    if b == 1:
         diccionario['primero'] = input("ingresa un valor para primero: ")
-    elif a == 2:
+        print("""
+        valores actuales:""")
+        for i in diccionario.values():
+            print(i)
+        print("")
+        # Aqui finaliza esta funcion
         pass
+        
+        # Ahora quiero ir a selector:
+        selector()
+    elif b == 2:
+        pass
+    # # revisando diccionario
+    # for i in diccionario.values():
+    #     print("despues de todo")
+    #     print(i)
+
+
+    # diccionario['primero'] = input("ingresa un valor para primero: ")
 
 
 def f_segundo():
-    diccionario['segundo'] = input("ingresa un valor para segundo: ")
+    b = int(input("""quieres dar un valor para SEGUNDO?
+    1) Yes
+    2) No
+    ingresa tu respuesta: """))
+    if b == 1:
+        diccionario['segundo'] = input("ingresa un valor para segundo: ")
+        print("""
+        valores actuales:""")
+        for i in diccionario.values():
+            print(i)
+        print("")
+        # Aqui finaliza esta funcion
+        pass
+        
+        # Ahora quiero ir a selector:
+        selector()
+    elif b == 2:
+        pass
+    # # revisando diccionario
+    # for i in diccionario.values():
+    #     print("despues de todo")
+    #     print(i)
 
 
-def run():
+def selector():
     a = int(input("""elige una de las opciones:
     1) editar PRIMERO
     2) editar SEGUNDO
@@ -31,10 +69,16 @@ def run():
         f_segundo()
     elif a == 3:
         pass
+
+
+def run():
+    selector()
+    print("""
+    informacion a imprimir: """)
     for i in diccionario.values():
         print(i)
 
 
 if __name__ == '__main__':
     run()
-    input()
+    # input()
