@@ -1,3 +1,3 @@
-INSERT INTO `tipos` (nombre)
-    VALUES ('fuego')
+INSERT INTO `tipos` (titulo de la obra)
+    VALUES ('1')
     ;
