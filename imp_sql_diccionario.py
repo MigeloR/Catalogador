@@ -1,210 +1,232 @@
-d_op_240 = {
-    '1': '$a Título uniforme (NR)',
-    '2': '$d Fecha de la firma de un tratado (R)',
-    '3': '$f Fecha de la obra (NR)',
-    '4': '$g Información miscelánea (R)',
-    '5': '$k Subencabezamiento de forma (R)',
-    '6': '$l Lengua de la obra (NR)',
-    '7': '$m Medio de interpretación (R)',
-    '8': '$n Número de parte o sección de la obra (R)',
-    '9': '$o Arreglo (NR)',
-    '10': '$p Nombre de parte o sección de la obra (R)',
-    '11': '$r Tonalidad (NR)',
-    '12': '$s Versión (R)',
-    '13': '$6 Enlace (NR)',
+elegir_240 = {
+    '1': '$a_Titulo_uniforme_NR',
+    '2': '$d_Fecha_de_la_firma_de_un_tratado_R',
+    '3': '$f_Fecha_de_la_obra_NR',
+    '4': '$g_Informacion_miscelanea_R',
+    '5': '$k_Subencabezamiento_de_forma_R',
+    '6': '$l_Lengua_de_la_obra_NR',
+    '7': '$m_Medio_de_interpretacion_R',
+    '8': '$n_Numero_de_parte_o_seccion_de_la_obra_R',
+    '9': '$o_Arreglo_NR',
+    '10': '$p_Nombre_de_parte_o_seccion_de_la_obra_R',
+    '11': '$r_Tonalidad_NR',
+    '12': '$s_Version_R',
+    '13': '$6_Enlace_NR',
 }
 
 
-d_co_240_subcampos = {
-    '$a Título uniforme (NR)': "",
-    '$d Fecha de la firma de un tratado (R)': "",
-    '$f Fecha de la obra (NR)': "",
-    '$g Información miscelánea (R)': "",
-    '$k Subencabezamiento de forma (R)': "",
-    '$l Lengua de la obra (NR)': "",
-    '$m Medio de interpretación (R)': "",
-    '$n Número de parte o sección de la obra (R)': "",
-    '$o Arreglo (NR)': "",
-    '$p Nombre de parte o sección de la obra (R)': "",
-    '$r Tonalidad (NR)': "",
-    '$s Versión (R)': "",
-    '$6 Enlace (NR)': "",
+llenar_subcampos_240 = {
+    '$a_Titulo_uniforme_NR': "",
+    '$d_Fecha_de_la_firma_de_un_tratado_R': "",
+    '$f_Fecha_de_la_obra_NR': "",
+    '$g_Informacion_miscelanea_R': "",
+    '$k_Subencabezamiento_de_forma_R': "",
+    '$l_Lengua_de_la_obra_NR': "",
+    '$m_Medio_de_interpretacion_R': "",
+    '$n_Numero_de_parte_o_seccion_de_la_obra_R': "",
+    '$o_Arreglo_NR': "",
+    '$p_Nombre_de_parte_o_seccion_de_la_obra_R': "",
+    '$r_Tonalidad_NR': "",
+    '$s_Version_R': "",
+    '$6_Enlace_NR': "",
 }
 
 
-d_op_245 = {
+elegir_245 = {
     '1': '$a Título (NR)',
     '2': '$c Mención de responsabilidad, etc. (NR)',
     '3': '$f Fechas extremas (NR)',
     '4': '$g Fechas predominantes (NR)',
     '5': '$k Forma (R)',
-    '6': '$n Número de parte o sección de la obra (R)',
-    '7': '$p Nombre de parte o sección de la obra (R)',
+    '6': '$n_Numero_de_parte_o_seccion_de_la_obra_(R)',
+    '7': '$p_Nombre_de_parte_o_seccion_de_la_obra_(R)',
     '8': '$s Versión (NR)',
-    '9': '$6 Enlace (NR)',
+    '9': '$6_Enlace_(NR)',
 }
 
 
-d_co_245_subcampos = {
+llenar_subcampos_245 = {
     '$a Título (NR)': "",
     '$c Mención de responsabilidad, etc. (NR)': "",
     '$f Fechas extremas (NR)': "",
     '$g Fechas predominantes (NR)': "",
     '$k Forma (R)': "",
-    '$n Número de parte o sección de la obra (R)': "",
-    '$p Nombre de parte o sección de la obra (R)': "",
+    '$n_Numero_de_parte_o_seccion_de_la_obra_(R)': "",
+    '$p_Nombre_de_parte_o_seccion_de_la_obra_(R)': "",
     '$s Versión (NR)': "",
-    '$6 Enlace (NR)': "",    
+    '$6_Enlace_(NR)': "",    
 }
 
 
-d_op_tablas = {
-    '1': "240_Titulo_uniforme",
+elegir_campos = {
+    '1': "240_titulo_uniforme_nr",
     '2': "245_Mencion_de_titulo",
 }
 
 
-d_co_tablas = {
-    '240_Titulo_uniforme': d_co_240_subcampos,
-    '245_Mencion_de_titulo': d_co_245_subcampos,
+llenar_campos = {
+    '240_titulo_uniforme_nr': elegir_240,
+    '245_Mencion_de_titulo': elegir_245,
 }
 
 
-d_e_dop_XXX = {
-    '1': 'd_op_240',
-    '2': 'd_op_245',
+llenar_subcampos_XXX = {
+    '240_titulo_uniforme_nr': llenar_subcampos_240,
+    '245_Mencion_de_titulo': llenar_subcampos_245,
 }
 
 
-de_dop_XXX = {
-    'd_op_240': d_op_240,
-    'd_op_245': d_op_245,
-}
-
-
-def tabla_elegida(eddddd):
-    """aqui se eligen subcampos"""
-    n = 1
+def dirige_a_escoge_subcampos(lss,ivlc):
+    """aqui se muestran los subcampos del campo elegido y se escoge uno"""
     print("""
-    campos actuales:
+    aqui empieza la seleccion de subcampos
     """)
-    for i in eddddd.values():
-        print(f"{n}) {i}")
-        n += 1
-    sc = int(input("elige un subcampo: "))
-    esc = eddddd[f'{sc}']
-    print(esc)
-
-    
-def run():
     n = 1
-    for i in d_op_tablas.values():
+    for i in ivlc.values():
         print(f"{n}) {i}")
         n += 1
-    e_d_co_tablas = int(input("""
-    elige uno de los campos: """))
-    edco = d_op_tablas[f'{e_d_co_tablas}']
-    edco_sc = d_e_dop_XXX[f'{e_d_co_tablas}']
-    print(f"sobre edco: {edco_sc} y {type(edco_sc)}")
-    eddddd = de_dop_XXX[edco_sc]
-    print(f"sobre eddddd: {eddddd} y {type(eddddd)}")
-    tabla_elegida(eddddd)
+    escoge_subcampos(lss,ivlc)
+    
+
+def escoge_subcampos(lss,ivlc):
+    subcampo_elegido = int(input("""
+    elige un subcampo: """))
+    # print(f"""
+    # este es el subcampo elegido: {subcampo_elegido}; {ivlc[f"{subcampo_elegido}"]}""")       
+    para_lss = ivlc[f"{subcampo_elegido}"]
+    # print(f"""
+    # esto es para_lss: {ivlc[f"{subcampo_elegido}"]}""")
+    # print(f"""
+    # esto es para_lss en lss: {lss[para_lss]}""")
+    lss[para_lss] = input(f"""agrega un contenido para {ivlc[f'{subcampo_elegido}']}: 
+    """)
+    print("")
+
+    # aqui preguntamos si quiere editar otro subcampo:
+    otro = int(input("""editar otro subcampo?
+    0 = no
+    1 = si"""))
+    if otro == 0:
+        pass
+    elif otro == 1:
+        escoge_subcampos(lss,ivlc)
+    
+    
+def escoge_campo():
+    """aqui escogeremos un campo"""
+    n = 1
+    print("campos disponibles:")
+    for i in elegir_campos.values():
+        print(f"{n}) {i}")
+        n += 1
+    campo_elegido = int(input("""
+    elgie un campo: """))
+    # print(f"""
+    # elegiste la opcion: {campo_elegido}""")
+    
+    # campo elegido en llenar_campos:
+    celc = elegir_campos[f'{campo_elegido}']
+    # print(f"""
+    # celc: {celc}; celc es tipo: {type(celc)}""")
+    # print(f"""
+    # esta opcion es el campo: {elegir_campos[f'{campo_elegido}']}""")
+    
+    # imprimiendo los valores de llenar_campos:
+    ivlc = llenar_campos[f'{celc}']
+    # print(f"""
+    # este es el valor de ivlc: {ivlc} y es de tipo: {type(ivlc)}""")
+    
+    # llenaremos los subcampos del subcampo_XXX:
+    lss = llenar_subcampos_XXX[celc]
+    # print(f"""
+    # lss tiene: {lss}""")
+    
+    # nos vamos a escoger un subcampo:
+    dirige_a_escoge_subcampos(lss,ivlc)
+    
+    # aniadido al final, si no sirve, crear un campo "dirige_a_elegir_campo":
+    otro_campo = int(input("""
+    quieres editar otro campo?
+    0 = no
+    1 = si"""))
+    if otro_campo == 0:
+        pass
+    elif otro_campo == 1:
+        escoge_campo()
+    
 
 
-if __name__ == '__main__':
-    run()
-    input()
+def run():
+    escoge_campo()
 
 
-# def f_co_columnas(ds):
-#     """Aqui se editan los contenidos de las columnas (las columnas son los subcamos)"""
-#     print("estado actual:")
-#     n = 1
-#     for i in d_co_tablas[ds].values():
-#         # print(d_op_240[f'{n}'])
-#         print(f"{d_op_240[f'{n}']}: {i}")
-#         n += 1
-#     print("")
-#     d_co_240_subcampos[f'{ds}'] = input(f"escribe un valor para {ds}: ")
-#     print("")
-#     # con esto volvemos a elegir otra columna o la misma, si deseamos corregir:
-#     f_se_columnas()
+def imprimir():
+    """previsualizacion de lo que se exportara"""
+    n = 0
+    lista_llenar_subcampos_240_llaves = []
+    lista_llenar_subcampos_240_valores = []
+    for i in llenar_subcampos_240.keys():
+        n += 1
+        if llenar_subcampos_240[f'{i}'] == "":
+            continue
+        else:
+            # print(f"{n}) {i}: {llenar_subcampos_240[f'{i}']}")
+            lista_llenar_subcampos_240_llaves.append(i)
+            lista_llenar_subcampos_240_valores.append(llenar_subcampos_240[f'{i}'])
+    lista_llenar_subcampos_240_llaves = tuple(lista_llenar_subcampos_240_llaves)
+    lista_llenar_subcampos_240_valores = tuple(lista_llenar_subcampos_240_valores)
+    print(lista_llenar_subcampos_240_llaves)
+    print(lista_llenar_subcampos_240_valores)
+    archivo(lista_llenar_subcampos_240_llaves,lista_llenar_subcampos_240_valores)
 
 
-# def f_se_columnas(llave):
-#     """Aqui se escogera un valor y este determinara la columna (las columnas son los subcamos) a editar"""
-#     print("campos actuales:")
-#     n = 1
-#     print("0) salir") 
-#     for i in d_co_240_subcampos.keys():
-#         print(f"{n}) {i}")
-#         n += 1
-#     llave = int(input("Elige una campo a editar: "))
-#     if llave == 0:
-#         pass
-#     else:
-#         ds = d_op_240[f'{llave}']
-#         print(ds)
-#         d = d_co_240_subcampos[f'{ds}']
-#         print(d)
-#         # print("""
-#         # a continuacion, optimizador
-#         # """)
-#         f_co_columnas(ds)
-#     print("""
-#     ya salimos de selector""")
+# # # def resultado():
+# # #     """aqui estara la estructura de lo que se exportara"""
+# # #     # lo que viene en adelante creará un documento en sql para exportar:
+# # #     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
+# # #     # lo que sigue será la primera línea del archivo:
+# # #     file.write(f"""INSERT INTO `{llenar_subcampos_240}` (lista_llenar_subcampos_240_llaves)
+# # #     VALUES ({lista_llenar_subcampos_240_valores}""")
+# # #     # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
+# # #     # lo que sigue indica que se cierra el archivo:
+# # #     file.close()
 
 
-# def f_se_tablas():
-#     """Aqui elegimos la tabla a editar (las tablas son los campos)"""
-#     # lo que sigue fue copiado de f_se_columnas
-#     print("tablas actuales:")
-#     n = 1
-#     print("0) salir") 
-#     for i in d_co_tablas.keys():
-#         print(f"{n}) {i}")
-#         n += 1
-#     llave = int(input("Elige una tabla a editar: "))
-#     if llave == 0:
-#         pass
-#     else:
-#         ds = d_op_tablas[f'{llave}']
-#         print(ds)
-#         d = d_co_tablas[f'{ds}']
-#         print(d)
-#         # print("""
-#         # a continuacion, optimizador
-#         # """)
-#         f_se_columnas(llave)
-#     print("""
-#     ya salimos de selector de tablas""")
+def temporal(lista_llenar_subcampos_240_llaves):
+    ex = len(lista_llenar_subcampos_240_llaves)
+    n = 0
+    for i in lista_llenar_subcampos_240_llaves:
+        n += 1
+        if ex - n == 0:
+            print(f"{i}")
+        else:
+            print(f"{i},")
 
 
-# def run():
-#     f_se_tablas()
-#     print("""
-#     informacion a imprimir:
-#     """)
-#     n = 1
-#     for i in d_co_240_subcampos.values():
-#         # print(d_op_240[f'{n}'])
-#         print(f"{d_op_240[f'{n}']}: {i}")
-#         n += 1
 
-
-# def resultado():
+def archivo(lista_llenar_subcampos_240_llaves,lista_llenar_subcampos_240_valores):
+    """aqui se redactara el archivo que se exportara"""
+    # primero, determinar las columnas (subcampos) a llenar:
+    print("imprimiendo a y b")
+    # esto es temporal:
+    """aqui estara la estructura de lo que se exportara"""
     # lo que viene en adelante creará un documento en sql para exportar:
-    file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
+    file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/marc21_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
-    file.write(f"""INSERT INTO `tipos` ({d_op_240['1']})
-    VALUES ('{d_co_240_subcampos[d_op_240['1']]}')
-    ;""")
+    file.write(f"""INSERT INTO `{elegir_campos[f'{1}']}` {lista_llenar_subcampos_240_llaves}
+    VALUES {lista_llenar_subcampos_240_valores};""")
     # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
     # lo que sigue indica que se cierra el archivo:
     file.close()
 
+    # resultado() aqui deberia estar
 
-# if __name__ == '__main__':
-#     run()
-#     resultado()
-#     input()
+   
+
+
+if __name__ == '__main__':
+    # la funcion run() inicia todo
+    run()
+    imprimir()
+    # archivo() se supone que aqui deberia ir
+    input()
