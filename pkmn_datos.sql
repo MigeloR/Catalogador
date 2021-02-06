@@ -1,3 +1,3 @@
-INSERT INTO `tipos` (titulo de la obra)
-    VALUES ('1')
+INSERT INTO `tipos` ($a Título uniforme (NR))
+    VALUES ('')
     ;

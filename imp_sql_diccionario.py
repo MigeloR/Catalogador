@@ -70,84 +70,129 @@ d_co_tablas = {
 }
 
 
-def f_co_columnas(ds):
-    """Aqui se editan los contenidos de las columnas (las columnas son los subcamos)"""
-    print("estado actual:")
-    n = 1
-    for i in d_co_240_subcampos.values():
-        # print(d_op_240[f'{n}'])
-        print(f"{d_op_240[f'{n}']}: {i}")
-        n += 1
-    print("")
-    d_co_240_subcampos[f'{ds}'] = input(f"escribe un valor para {ds}: ")
-    print("")
-    # con esto volvemos a elegir otra columna o la misma, si deseamos corregir:
-    f_se_columnas()
+d_e_dop_XXX = {
+    '1': 'd_op_240',
+    '2': 'd_op_245',
+}
 
 
-def f_se_columnas(llave):
-    """Aqui se escogera un valor y este determinara la columna (las columnas son los subcamos) a editar"""
-    print("campos actuales:")
+de_dop_XXX = {
+    'd_op_240': d_op_240,
+    'd_op_245': d_op_245,
+}
+
+
+def tabla_elegida(eddddd):
+    """aqui se eligen subcampos"""
     n = 1
-    print("0) salir") 
-    for i in d_co_240_subcampos.keys():
+    print("""
+    campos actuales:
+    """)
+    for i in eddddd.values():
         print(f"{n}) {i}")
         n += 1
-    llave = int(input("Elige una campo a editar: "))
-    if llave == 0:
-        pass
-    else:
-        ds = d_op_240[f'{llave}']
-        print(ds)
-        d = d_co_240_subcampos[f'{ds}']
-        print(d)
-        # print("""
-        # a continuacion, optimizador
-        # """)
-        f_co_columnas(ds)
-    print("""
-    ya salimos de selector""")
+    sc = int(input("elige un subcampo: "))
+    esc = eddddd[f'{sc}']
+    print(esc)
 
-
-
-def f_se_tablas():
-    """Aqui elegimos la tabla a editar (las tablas son los campos)"""
-    # lo que sigue fue copiado de f_se_columnas
-    print("tablas actuales:")
-    n = 1
-    print("0) salir") 
-    for i in d_co_tablas.keys():
-        print(f"{n}) {i}")
-        n += 1
-    llave = int(input("Elige una tabla a editar: "))
-    if llave == 0:
-        pass
-    else:
-        ds = d_op_tablas[f'{llave}']
-        print(ds)
-        d = d_co_tablas[f'{ds}']
-        print(d)
-        # print("""
-        # a continuacion, optimizador
-        # """)
-        f_se_columnas(llave)
-    print("""
-    ya salimos de selector de tablas""")
-
-
+    
 def run():
-    f_se_tablas()
-    print("""
-informacion a imprimir:
-""")
     n = 1
-    for i in d_co_240_subcampos.values():
-        # print(d_op_240[f'{n}'])
-        print(f"{d_op_240[f'{n}']}: {i}")
+    for i in d_op_tablas.values():
+        print(f"{n}) {i}")
         n += 1
+    e_d_co_tablas = int(input("""
+    elige uno de los campos: """))
+    edco = d_op_tablas[f'{e_d_co_tablas}']
+    edco_sc = d_e_dop_XXX[f'{e_d_co_tablas}']
+    print(f"sobre edco: {edco_sc} y {type(edco_sc)}")
+    eddddd = de_dop_XXX[edco_sc]
+    print(f"sobre eddddd: {eddddd} y {type(eddddd)}")
+    tabla_elegida(eddddd)
 
 
-def resultado():
+if __name__ == '__main__':
+    run()
+    input()
+
+
+# def f_co_columnas(ds):
+#     """Aqui se editan los contenidos de las columnas (las columnas son los subcamos)"""
+#     print("estado actual:")
+#     n = 1
+#     for i in d_co_tablas[ds].values():
+#         # print(d_op_240[f'{n}'])
+#         print(f"{d_op_240[f'{n}']}: {i}")
+#         n += 1
+#     print("")
+#     d_co_240_subcampos[f'{ds}'] = input(f"escribe un valor para {ds}: ")
+#     print("")
+#     # con esto volvemos a elegir otra columna o la misma, si deseamos corregir:
+#     f_se_columnas()
+
+
+# def f_se_columnas(llave):
+#     """Aqui se escogera un valor y este determinara la columna (las columnas son los subcamos) a editar"""
+#     print("campos actuales:")
+#     n = 1
+#     print("0) salir") 
+#     for i in d_co_240_subcampos.keys():
+#         print(f"{n}) {i}")
+#         n += 1
+#     llave = int(input("Elige una campo a editar: "))
+#     if llave == 0:
+#         pass
+#     else:
+#         ds = d_op_240[f'{llave}']
+#         print(ds)
+#         d = d_co_240_subcampos[f'{ds}']
+#         print(d)
+#         # print("""
+#         # a continuacion, optimizador
+#         # """)
+#         f_co_columnas(ds)
+#     print("""
+#     ya salimos de selector""")
+
+
+# def f_se_tablas():
+#     """Aqui elegimos la tabla a editar (las tablas son los campos)"""
+#     # lo que sigue fue copiado de f_se_columnas
+#     print("tablas actuales:")
+#     n = 1
+#     print("0) salir") 
+#     for i in d_co_tablas.keys():
+#         print(f"{n}) {i}")
+#         n += 1
+#     llave = int(input("Elige una tabla a editar: "))
+#     if llave == 0:
+#         pass
+#     else:
+#         ds = d_op_tablas[f'{llave}']
+#         print(ds)
+#         d = d_co_tablas[f'{ds}']
+#         print(d)
+#         # print("""
+#         # a continuacion, optimizador
+#         # """)
+#         f_se_columnas(llave)
+#     print("""
+#     ya salimos de selector de tablas""")
+
+
+# def run():
+#     f_se_tablas()
+#     print("""
+#     informacion a imprimir:
+#     """)
+#     n = 1
+#     for i in d_co_240_subcampos.values():
+#         # print(d_op_240[f'{n}'])
+#         print(f"{d_op_240[f'{n}']}: {i}")
+#         n += 1
+
+
+# def resultado():
     # lo que viene en adelante creará un documento en sql para exportar:
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
@@ -159,7 +204,7 @@ def resultado():
     file.close()
 
 
-if __name__ == '__main__':
-    run()
-    # resultado()
-    input()
+# if __name__ == '__main__':
+#     run()
+#     resultado()
+#     input()
