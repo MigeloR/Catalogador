@@ -1,2 +1,0 @@
-INSERT INTO `{'$a Título uniforme (NR)': 'titulo', '$d Fecha de la firma de un tratado (R)': 'tratado', '$f Fecha de la obra (NR)': '', '$g Información miscelánea (R)': '', '$k Subencabezamiento de forma (R)': 'forma', '$l Lengua de la obra (NR)': '', '$m Medio de interpretación (R)': '', '$n Número de parte o sección de la obra (R)': '', '$o Arreglo (NR)': '', '$p Nombre de parte o sección de la obra (R)': '', '$r Tonalidad (NR)': '', '$s Versión (R)': '', '$6 Enlace (NR)': 'enlace'}` (lista_llenar_subcampos_240_llaves)
-    VALUES (['titulo', 'tratado', 'forma', 'enlace']

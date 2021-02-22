@@ -1,3 +1,12 @@
+# Proceso:
+# 1) run()
+# 1.1) escoge_campo()
+# 1.1.1) dirige_a_escoge_subcampos()
+# 1.1.1.1) escoge_subcampo()
+# 2) imprimir()
+# 
+
+
 elegir_240 = {
     '1': '$a_Titulo_uniforme_NR',
     '2': '$d_Fecha_de_la_firma_de_un_tratado_R',
@@ -76,18 +85,6 @@ llenar_subcampos_XXX = {
 }
 
 
-def dirige_a_escoge_subcampos(lss,ivlc):
-    """aqui se muestran los subcampos del campo elegido y se escoge uno"""
-    print("""
-    aqui empieza la seleccion de subcampos
-    """)
-    n = 1
-    for i in ivlc.values():
-        print(f"{n}) {i}")
-        n += 1
-    escoge_subcampos(lss,ivlc)
-    
-
 def escoge_subcampos(lss,ivlc):
     subcampo_elegido = int(input("""
     elige un subcampo: """))
@@ -112,6 +109,18 @@ def escoge_subcampos(lss,ivlc):
         escoge_subcampos(lss,ivlc)
     
     
+def dirige_a_escoge_subcampos(lss,ivlc):
+    """aqui se muestran los subcampos del campo elegido y se escoge uno"""
+    print("""
+    aqui empieza la seleccion de subcampos
+    """)
+    n = 1
+    for i in ivlc.values():
+        print(f"{n}) {i}")
+        n += 1
+    escoge_subcampos(lss,ivlc)
+    
+
 def escoge_campo():
     """aqui escogeremos un campo"""
     n = 1
@@ -213,6 +222,8 @@ def archivo(lista_llenar_subcampos_240_llaves,lista_llenar_subcampos_240_valores
     # lo que viene en adelante creará un documento en sql para exportar:
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/marc21_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
+    ## lo que hace falta aqu'i es cambiar ''lista_llenar_subcampos_240_llaves'' por las llaves, para que el resultado sea el mismo que 'INSERT INTO `elegir_campos...`'
+    ## quiz'a convenga hacer un 'archivo()' por cada area que seria llenada
     file.write(f"""INSERT INTO `{elegir_campos[f'{1}']}` {lista_llenar_subcampos_240_llaves}
     VALUES {lista_llenar_subcampos_240_valores};""")
     # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
