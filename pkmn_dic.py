@@ -33,10 +33,6 @@ tipos = {
 
 
 datos = {
-    'n': 000,
-    'nombre': "aaa",
-    'tipo1': 111,
-    'tipo2': 222,
 }
 
 
@@ -44,7 +40,8 @@ def pkmn_tipos2():
     # esta funcion añade un segundo tipo
     a = input('escribe el tipo: ')
     # ahora preguntamos si tiene segundo tipo
-    datos['tipos2'] = a
+    datos['tipo2'] = a
+
 
 def pkmn_tipos():
     # esta funcion añade el tipo del pkmn
@@ -55,7 +52,7 @@ def pkmn_tipos():
         counter += 1
     a = input('escribe el tipo: ')
     # ahora preguntamos si tiene segundo tipo
-    datos['tipos1'] = a
+    datos['tipo1'] = a
     seg = int(input('''tiene segundo tipo?
     0) no
     1) si
@@ -92,19 +89,19 @@ def imprimir():
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
     file.write(f'''INSERT INTO pokemon (id, nombre)
-    VALUES ('{datos['n']}', '{datos['nombre']}')
-    ;
-    INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
-    VALUES ('{datos['n']}', '{datos['tipo1']}')
-    ;''')
+VALUES ('{datos['n']}', '{datos['nombre']}')
+;
+INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
+VALUES ('{datos['n']}', '{datos['tipo1']}')
+;''')
+    # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
     if len(datos) == 4:
         file.write(f'''
-        INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
-        ('{datos['n']}', '{datos['tipo2']}')
-        ;''')
+INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
+VALUES ('{datos['n']}', '{datos['tipo2']}')
+;''')
     else:
         pass
-    # puedes añadir otra línea bajo la estructura "file.write()". Entre paréntesis debe ir el contenido de la línea:
     # lo que sigue indica que se cierra el archivo:
     file.close()
 

@@ -35,6 +35,13 @@ tipos = {
 datos = []
 
 
+def pkmn_tipos2():
+    # esta funcion añade un segundo tipo
+    a = input('escribe el tipo: ')
+    # ahora preguntamos si tiene segundo tipo
+    datos.append(a)
+
+
 def pkmn_tipos():
     # esta funcion añade el tipo del pkmn
     counter = 1
@@ -80,7 +87,8 @@ def imprimir():
     # lo que sigue 'abre' un archivo, entre parentesis se ubica la direccion en donde se creara
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
-    file.write(f'''INSERT INTO pokemon (id, nombre)
+    file.write(f'''
+    INSERT INTO pokemon (id, nombre)
     VALUES ('{datos[0]}', '{datos[1]}')
     ;
     INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
