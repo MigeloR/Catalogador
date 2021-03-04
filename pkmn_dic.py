@@ -1,4 +1,4 @@
-'''el resultado es un documento en sql que sube UNA LINEA de info a la db
+'''el resultado es un documento en sql que sube UNA LINEA de info a la db. la información se guarda en el diccionario datos
 etapas:
 1) nombre del pkmn en tabla pokemon
 2) asociacion del pkmn con sus tipos en pkmn_tipos
@@ -32,8 +32,19 @@ tipos = {
 }
 
 
-datos = []
+datos = {
+    'n': 000,
+    'nombre': "aaa",
+    'tipo1': 111,
+    'tipo2': 222,
+}
 
+
+def pkmn_tipos2():
+    # esta funcion añade un segundo tipo
+    a = input('escribe el tipo: ')
+    # ahora preguntamos si tiene segundo tipo
+    datos['tipos2'] = a
 
 def pkmn_tipos():
     # esta funcion añade el tipo del pkmn
@@ -44,7 +55,7 @@ def pkmn_tipos():
         counter += 1
     a = input('escribe el tipo: ')
     # ahora preguntamos si tiene segundo tipo
-    datos.append(a)
+    datos['tipos1'] = a
     seg = int(input('''tiene segundo tipo?
     0) no
     1) si
@@ -59,13 +70,13 @@ def pkmn_tipos():
 def nombrepkmn():
     # esta función añade el nombre del pkmn
     b = input('escribe el nombre: ')
-    datos.append(b)
+    datos['nombre'] = b
 
 
 def numeropkmn():
     # esta funcion añade el numero del pkmn
     n = int(input('escribe el numero del pkmn: '))
-    datos.append(n)
+    datos['n'] = n
 
 
 def run():
@@ -81,15 +92,15 @@ def imprimir():
     file = open("d:/00Eternidad/00Drive/Documentos vivos/Proyectos/Rentabilidad/Base de datos SQL/pkmn/pkmn_datos.sql", "w")
     # lo que sigue será la primera línea del archivo:
     file.write(f'''INSERT INTO pokemon (id, nombre)
-    VALUES ('{datos[0]}', '{datos[1]}')
+    VALUES ('{datos['n']}', '{datos['nombre']}')
     ;
     INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
-    VALUES ('{datos[0]}', '{datos[2]}')
+    VALUES ('{datos['n']}', '{datos['tipo1']}')
     ;''')
     if len(datos) == 4:
         file.write(f'''
         INSERT INTO pkmn_tipos (pkmn_id, tipos_id)
-        ('{datos[0]}', '{datos[3]}')
+        ('{datos['n']}', '{datos['tipo2']}')
         ;''')
     else:
         pass
